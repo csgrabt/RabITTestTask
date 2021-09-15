@@ -1,8 +1,13 @@
 package com.example.rabittesttask.user;
 
+import com.example.rabittesttask.advertisement.Advertisement;
+import com.example.rabittesttask.advertisement.AdvertisementDTO;
+import com.example.rabittesttask.advertisement.CreateAdvertisementCommand;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 
@@ -25,5 +30,18 @@ public class UserService {
                 .stream()
                 .map(n -> modelMapper.map(n, UserDTO.class))
                 .toList();
+    }
+
+
+   // @Transactional
+    public AdvertisementDTO createAdvertisement(CreateAdvertisementCommand command) {
+
+        User user = userRepository.findById(command.getUserId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
+        System.out.println(user);
+        Advertisement advertisement = new Advertisement(command.getTitle());
+        System.out.println(advertisement);
+        advertisement.setUser(user);
+        return new AdvertisementDTO(advertisement.getId(), advertisement.getTitle(), user.getId());
+
     }
 }

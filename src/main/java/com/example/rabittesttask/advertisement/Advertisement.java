@@ -23,6 +23,10 @@ public class Advertisement {
     private User user;
 
 
+    public Advertisement(String title) {
+        this.title = title;
+    }
+
     public void setUser(User user) {
         this.user = user;
         user.getAdvertisements().add(this);

@@ -1,6 +1,8 @@
 package com.example.rabittesttask.user;
 
 
+import com.example.rabittesttask.advertisement.AdvertisementDTO;
+import com.example.rabittesttask.advertisement.CreateAdvertisementCommand;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -33,5 +35,11 @@ public class UserController {
         return userService.getUsersFromDatabase();
     }
 
+    @PostMapping("/advertisement")
+    @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "Creates an Advertisement")
+    public AdvertisementDTO createAdvertisement(@Valid @RequestBody CreateAdvertisementCommand command) {
+        return userService.createAdvertisement(command);
+    }
 }
 

@@ -63,7 +63,7 @@ class UserControllerRestTemplateIT {
 
         CreateAdvertisementCommand advertisementCommand = new CreateAdvertisementCommand(user.getId(), "Almavirág hírdetés");
 
-        AdvertisementDTO advertisementDTO = template.postForObject("/api/users/advertisement", inputCommand, AdvertisementDTO.class);
+        AdvertisementDTO advertisementDTO = template.postForObject("/api/users/advertisement", advertisementCommand, AdvertisementDTO.class);
 
         assertEquals(user.getId(), advertisementDTO.getUserId());
         assertEquals("Almavirág hírdetés", advertisementCommand.getTitle());
