@@ -20,16 +20,12 @@ public class Advertisement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @ManyToMany
-    private List<User> users;
+    @OneToOne
+    private User user;
 
-    public Advertisement(String title) {
-        this.title = title;
-        this.users = new ArrayList<>();
-    }
 
     public void setUser(User user) {
-        users.add(user);
+        this.user = user;
         user.getAdvertisements().add(this);
     }
 }

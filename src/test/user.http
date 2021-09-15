@@ -1,0 +1,14 @@
+GET http://localhost:8080/api/users
+Accept: application/json
+
+###
+
+### Idős hozzáadása
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "fullName": "John Doe"
+
+}
+

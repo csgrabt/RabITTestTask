@@ -19,8 +19,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name")
     private String fullName;
-    @ManyToMany(mappedBy = "users")
+    @OneToMany
     private List<Advertisement> advertisements;
 
     public User(String fullName) {
