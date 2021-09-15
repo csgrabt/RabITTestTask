@@ -40,8 +40,8 @@ class UserControllerRestTemplateIT {
     @Test
     void listOfTheUsers() {
 
-        template.postForObject("/api/elders", new CreateUserCommandWithNoAdd("John Doe"), UserDTO.class);
-        template.postForObject("/api/elders", new CreateUserCommandWithNoAdd("Jack Doe"), UserDTO.class);
+        template.postForObject("/api/users", new CreateUserCommandWithNoAdd("John Doe"), UserDTO.class);
+        template.postForObject("/api/users", new CreateUserCommandWithNoAdd("Jack Doe"), UserDTO.class);
 
 
         List<UserDTO> list = template.exchange("/api/users", HttpMethod.GET, null,
