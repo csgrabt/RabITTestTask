@@ -35,11 +35,8 @@ public class UserService {
 
     @Transactional
     public AdvertisementDTO createAdvertisement(CreateAdvertisementCommand command) {
-
         User user = userRepository.findById(command.getUserId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
-        System.out.println(user);
         Advertisement advertisement = new Advertisement(command.getTitle());
-        System.out.println(advertisement);
         advertisement.setUser(user);
         return new AdvertisementDTO(advertisement.getId(), advertisement.getTitle(), user.getFullName());
 
