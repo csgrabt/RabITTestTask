@@ -27,4 +27,9 @@ public class Advertisement {
         this.title = title;
         this.users = new ArrayList<>();
     }
+
+    public void setUser(User user) {
+        users.add(user);
+        user.getAdvertisements().add(this);
+    }
 }
