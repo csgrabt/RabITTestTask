@@ -4,6 +4,9 @@ import com.example.rabittesttask.advertisement.Advertisement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.FieldNameConstants;
+import org.apache.commons.lang3.builder.HashCodeExclude;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,6 +24,7 @@ public class User {
     private Long id;
     @Column(name = "name")
     private String fullName;
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Advertisement> advertisements;
 

@@ -1,12 +1,21 @@
 package com.example.rabittesttask.advertisement;
-
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class AdvertisementService {
     private AdvertisementRepository advertisementRepository;
-    private ModelMapper modelMapper;
+
+
+    public List<AdvertisementDTO> getAddsFromDatabase() {
+        List<Advertisement> advertisements = advertisementRepository.findAll();
+        System.out.println(advertisements);
+        return advertisements
+                .stream()
+                .map(n -> new AdvertisementDTO(n.getId(), n.getTitle(), n.getUser().getFullName()))
+                .toList();
+    }
 }
