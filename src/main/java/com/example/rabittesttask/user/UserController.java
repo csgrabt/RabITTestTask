@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RequestMapping("/api/users")
 @RestController
@@ -26,5 +27,11 @@ public class UserController {
         return userService.createUserWithNoAdd(command);
     }
 
+    @GetMapping
+    @Operation(summary = "Gives back the list of User")
+    public List<UserDTO> usersFromDatabase() {
+        return userService.getUsersFromDatabase();
+    }
 
 }
+
