@@ -1,6 +1,8 @@
 package com.example.rabittesttask;
 
 
+import com.example.rabittesttask.advertisement.AdvertisementDTO;
+import com.example.rabittesttask.advertisement.CreateAdvertisementCommand;
 import com.example.rabittesttask.user.CreateUserCommandWithNoAdd;
 import com.example.rabittesttask.user.UserDTO;
 import com.example.rabittesttask.user.UserService;
@@ -52,5 +54,22 @@ class UserControllerRestTemplateIT {
                 .extracting(UserDTO::getFullName)
                 .containsExactly("John Doe", "Jack Doe");
     }
+
+    @Test
+    void createAdvertisement() {
+
+        CreateUserCommandWithNoAdd inputCommand = new CreateUserCommandWithNoAdd("John Doe");
+        UserDTO user = template.postForObject("/api/users", inputCommand, UserDTO.class);
+
+        CreateAdvertisementCommand advertisementCommand = new CreateAdvertisementCommand(user.getId(), "Almavirág hírdetés");
+
+        AdvertisementDTO advertisementDTO = template.postForObject("/api/users/advertisement", inputCommand, AdvertisementDTO.class);
+
+        assertEquals(user.getId(), advertisementDTO.getUserId());
+        assertEquals("Almavirág hírdetés", advertisementCommand.getTitle());
+
+
+    }
+
 
 }
