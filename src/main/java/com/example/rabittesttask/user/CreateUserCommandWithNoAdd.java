@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 
 public class CreateUserCommandWithNoAdd {
     @Schema(description = "Name of the new User", example = "John Doe")
-    private String name;
+    private String fullName;
 }
