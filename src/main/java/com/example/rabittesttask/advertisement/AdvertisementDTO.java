@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 public class AdvertisementDTO {
     private Long id;
     private String title;
-    private Long userId;
+    private String userName;
 }

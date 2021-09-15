@@ -33,7 +33,7 @@ public class UserService {
     }
 
 
-   // @Transactional
+    @Transactional
     public AdvertisementDTO createAdvertisement(CreateAdvertisementCommand command) {
 
         User user = userRepository.findById(command.getUserId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -41,7 +41,7 @@ public class UserService {
         Advertisement advertisement = new Advertisement(command.getTitle());
         System.out.println(advertisement);
         advertisement.setUser(user);
-        return new AdvertisementDTO(advertisement.getId(), advertisement.getTitle(), user.getId());
+        return new AdvertisementDTO(advertisement.getId(), advertisement.getTitle(), user.getFullName());
 
     }
 }

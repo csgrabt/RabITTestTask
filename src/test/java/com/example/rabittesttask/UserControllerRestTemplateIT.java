@@ -12,9 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
-import org.springframework.test.context.jdbc.Sql;
-
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,7 +62,7 @@ class UserControllerRestTemplateIT {
 
         AdvertisementDTO advertisementDTO = template.postForObject("/api/users/advertisement", advertisementCommand, AdvertisementDTO.class);
 
-        assertEquals(user.getId(), advertisementDTO.getUserId());
+        assertEquals(user.getFullName(), advertisementDTO.getUserName());
         assertEquals("Almavirág hírdetés", advertisementCommand.getTitle());
 
 
