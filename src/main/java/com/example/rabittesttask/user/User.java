@@ -21,7 +21,7 @@ public class User {
     private Long id;
     @Column(name = "name")
     private String fullName;
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Advertisement> advertisements;
 
     public User(String fullName) {
