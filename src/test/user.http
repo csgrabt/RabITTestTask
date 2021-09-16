@@ -15,6 +15,6 @@ POST http://localhost:8080/api/users/advertisement
 Content-Type: application/json
 
 {
-  "userId": 2,
+  "userId": 28,
   "title": "Almavirág"
 }

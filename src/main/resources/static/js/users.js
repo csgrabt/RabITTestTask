@@ -12,7 +12,7 @@ window.onload = function () {
             console.log(jsonData);
 
             let ul = document.querySelector("#users-ul")
-            ul.innerHTML += "Usernames";
+
             for (let user of jsonData) {
                 let row = "<li>" + user.fullName + "</li>"
                 ul.innerHTML += row;
