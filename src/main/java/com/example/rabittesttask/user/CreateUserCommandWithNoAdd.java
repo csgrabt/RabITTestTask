@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,5 +15,6 @@ import lombok.NoArgsConstructor;
 
 public class CreateUserCommandWithNoAdd {
     @Schema(description = "Name of the new User", example = "John Doe")
+    @NotBlank
     private String fullName;
 }
