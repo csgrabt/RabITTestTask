@@ -1,0 +1,32 @@
+body {
+    background-color: aliceblue;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 20px;
+    color: darkblue;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial;
+    font-size: 15px;
+}
+
+h3 {
+    font-size: 10px;
+    text-align: right;
+}
+
+ul.a {
+    list-style-type: none;
+    font-size: 12px;
+    font-family: Gadugi;
+    color: gray;
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+    margin-right: auto;
+}
