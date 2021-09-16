@@ -1,4 +1,4 @@
-package com.example.rabittesttask.index;
+/*package com.example.rabittesttask.index;
 
 
 import lombok.AllArgsConstructor;
@@ -15,4 +15,4 @@ public class IndexController {
     public String index() {
        return "Welcome";
     }
-}
+}*/
