@@ -3,9 +3,8 @@ window.onload = function () {
 
     let button = document.querySelector("#create-button")
     let input = document.querySelector("#name-input")
-    button.onclick = function (e) {
 
-
+    button.onclick = function () {
         let name = input.value;
         let data = {"fullName": name}
         let url = 'http://localhost:8080/api/users';
@@ -17,10 +16,8 @@ window.onload = function () {
             }
         })
             .then(function (Response) {
-
                     if (201 !== Response.status) alert("Something went wrong, User not created")
                     else alert("User has been created")
-
                 }
             )
     };
