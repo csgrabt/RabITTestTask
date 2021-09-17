@@ -46,3 +46,11 @@ This is important for us, it helps with the decision. If you can solve
 this, you definitely can fit into our project.
 
 Let me know if you have any questions.
+
+### További tervek:
+- tesztadatbázis beállítása
+- validációk beépítése
+- globális hibakezelés
+- saját kivétel dobása, ha a lekért User nincs az adatbázisban 
+- átállás php backendre
+- szebb frontend, a visszakapott adatokat ne listába, hanem táblázatba jelenítse meg

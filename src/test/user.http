@@ -7,7 +7,7 @@ POST http://localhost:8080/api/users
 Content-Type: application/json
 
 {
-  "fullName": "John Doe"
+  "fullName": "Jane Doe"
 }
 
 ###
@@ -15,6 +15,6 @@ POST http://localhost:8080/api/users/advertisement
 Content-Type: application/json
 
 {
-  "userId": 28,
-  "title": "Almavirág"
+  "userId": 71,
+  "title": "Barackvirág"
 }
