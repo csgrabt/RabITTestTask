@@ -1,25 +1,25 @@
 package com.example.rabittesttask;
 
-import com.example.rabittesttask.advertisement.Advertisement;
+
 import com.example.rabittesttask.advertisement.AdvertisementDTO;
 import com.example.rabittesttask.advertisement.AdvertisementService;
 import com.example.rabittesttask.advertisement.CreateAdvertisementCommand;
 import com.example.rabittesttask.user.CreateUserCommandWithNoAdd;
 import com.example.rabittesttask.user.UserDTO;
-import com.example.rabittesttask.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-
+@Sql(statements = {"delete from user.advertisements", "delete from user.users"})
 public class AdvertisementControllerRestTemplateIT {
 
     @Autowired
@@ -44,9 +44,9 @@ public class AdvertisementControllerRestTemplateIT {
                 new ParameterizedTypeReference<List<AdvertisementDTO>>() {
                 }).getBody();
 
-      //  assertThat(list)
-      //          .extracting(AdvertisementDTO::getUserName)
-      //          .containsExactly("John Doe", "Jack Doe");
+        assertThat(list)
+                .extracting(AdvertisementDTO::getUserName)
+                .containsExactly("John Doe", "Jack Doe");
     }
 
 }
