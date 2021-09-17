@@ -12,7 +12,6 @@ public class AdvertisementService {
 
     public List<AdvertisementDTO> getAddsFromDatabase() {
         List<Advertisement> advertisements = advertisementRepository.findAll();
-        System.out.println(advertisements);
         return advertisements
                 .stream()
                 .map(n -> new AdvertisementDTO(n.getId(), n.getTitle(), n.getUser().getFullName()))
